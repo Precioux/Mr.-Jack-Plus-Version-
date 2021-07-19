@@ -2199,15 +2199,12 @@ if(d==0 || d==11) //tile 1
             where=finder(4,1);
             if(where->info.j[3]==1)
             {
-        //    puts("You entered tile 4");
             cj[4]++;
              if(where->info.j[1]==1)
             {
-          //  puts("You left tile 4");
             where=finder(5,1);
              if(where->info.j[3]==1)
             {
-            //puts("You entered tile 5");
             cj[5]++;
 
             }
@@ -2228,10 +2225,8 @@ int deduction_time(int who)
     int res=0;
      if(who==1)//detective
      {
-    //     puts("Hi Detective1");
          for(int i=0;i<3;i++)
          {
-           //  printf("Detective : %d\n",i);
              Jack_L=Jack_L+whereisJack(detector_t[i]);
 
          }
@@ -2254,10 +2249,8 @@ int deduction_time(int who)
         {
         if(who==0)
         {
-            //  puts("Hi detective2");
              for(int i=0;i<3;i++)
          {
-         //    printf("Detective : %d\n",i);
              Jack_L=Jack_L+whereisJack(detector_t[i]);
          }
         }
@@ -2366,22 +2359,15 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
    if(turn%2!=0)   //Detector turn
    {
        puts("Detectors turn");
-       //srand(time(NULL));
        for(int i=0;i<4;i++) //side of action token gonna be set 1: up / 0: down
        {
            act[i].side=rand()%2;
            act[i].check=0; //set action token unchosen
            printf("Token %d : %d\n",i+1,act[i].side);
        }
-    //   puts("(In order to stop the game enter 0)");
        puts("Detector, choose your first action: ");
        scanf("%d",&ch[0]);
        ch[0]=ch[0]-1;
-      /* if(ch[0]==-1){
-        k=game_saver(1);
-        if(k==-1)
-            break;
-       }*/
        if(ch[0]==0)
        {
            Token1(act[0].side,1);
@@ -2408,15 +2394,8 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
            if(act[i].check==0)
             printf("Token %d : %d\n",i+1,act[i].side);
        }
-     //  puts("(In order to stop the game enter 0)");
        scanf("%d%d",&ch[1],&ch[2]);
        ch[1]=ch[1]-1;
-       ch[2]=ch[2]-1;
-      /* if(ch[1]==-1 || ch[2]==-1){
-        k=game_saver(0);
-        if(k==-1)
-            break;
-       }*/
 
        if(ch[1]==0)
        {
@@ -2503,15 +2482,8 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
            if(act[i].check==0)
             printf("Token %d : %d\n",i+1,act[i].side);
        }
-        //puts("(In order to stop the game enter 0)");
        scanf("%d",&ch[3]);
        ch[3]=ch[3]-1;
-      /* if(ch[3]==-1)
-        {
-        k=game_saver(1);
-        if(k==-1)
-            break;
-        }*/
        if(ch[3]==0)
        {
            Token1(act[0].side,1);
@@ -2560,17 +2532,9 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
           ch[i]=-1;
           printf("Token %d : %d\n",i+1,act[i].side);
        }
-     //   puts("(In order to stop the game enter 0)");
     puts("Jack, choose your first action: ");
        scanf("%d",&ch[0]);
        ch[0]=ch[0]-1;
-    /*   if(ch[0]==-1)
-        {
-        k=game_saver(0);
-        if(k==-1)
-            break;
-        }*/
-
        if(ch[0]==0)
        {
            Token1(act[0].side,0);
@@ -2597,16 +2561,9 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
            if(act[i].check==0)
             printf("Token %d : %d\n",i+1,act[i].side);
        }
-      //  puts("(In order to stop the game enter 0)");
        scanf("%d%d",&ch[1],&ch[2]);
        ch[1]=ch[1]-1;
        ch[2]=ch[2]-1;
-     /*  if(ch[1]==-1 || ch[2]==-1)
-        {
-           k=game_saver(1);
-        if(k==-1)
-            break;
-        }*/
        if(ch[1]==0)
        {
            Token1(act[0].side,1);
@@ -2692,15 +2649,8 @@ while(turn_checker()==0 && save==0) //till turn checker is 0
            if(act[i].check==0)
             printf("Token %d : %d\n",i+1,act[i].side);
        }
-       // puts("(In order to stop the game enter 0)");
        scanf("%d",&ch[3]);
        ch[3]=ch[3]-1;
-      /* if(ch[3]==-1)
-        {
-          k=game_saver(0);
-        if(k==-1)
-            break;
-        }*/
        if(ch[3]==0)
        {
            Token1(act[0].side,0);
