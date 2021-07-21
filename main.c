@@ -3255,7 +3255,7 @@ void game_is_on(int c,int game)
        act[i].side=-1; //setting sides as unwanted side
    }
    }
-   if(c==1)
+   if(c==0)
     jack_id();
    int flag[8];
    for(int i=0;i<8;i++)
@@ -3427,7 +3427,7 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
             break;
         }
        }
-       if(gametype==1 && c==1)
+       if(gametype==1 && choice==1)
        {
            puts("Detectors turn");
        for(int i=0;i<4;i++) //side of action token gonna be set 1: up / 0: down
@@ -3597,7 +3597,7 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
             break;
         }
        }
-       if(gametype==1 && c==2)
+       if(gametype==1 && choice==2)
        {
            puts("Detectors turn");
        for(int i=0;i<4;i++) //side of action token gonna be set 1: up / 0: down
@@ -3950,7 +3950,7 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
             break;
         }
         }
-        if(gametype==1 && c==1)
+        if(gametype==1 && choice==1)
         {
           puts("Jack turn");
      for(int i=0;i<4;i++) //other side of action token gonna be set 1: up / 0: down
@@ -4132,7 +4132,7 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
             break;
         }
         }
-        if(gametype==1 && c==2)
+        if(gametype==1 && choice==2)
         {
              puts("Jack turn");
      for(int i=0;i<4;i++) //other side of action token gonna be set 1: up / 0: down
@@ -4467,7 +4467,7 @@ void previousgame(void)
     int response=load_game();
     if(response==1){
         puts("Signed in Successfully");
-        game_is_on(choice,0);
+        game_is_on(role,0);
     }
     else puts("Signed in Failed");
 }
