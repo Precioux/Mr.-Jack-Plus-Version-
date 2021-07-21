@@ -68,7 +68,6 @@ void head_maker(tode** head,  tode* nn) //set head node
  {
   nn->next = *head;
   *head = nn;
-  //printf("Head is %d %s %d\n",nn->info.p,nn->info.name,nn->info.key);
 } //checked
 void tile_adder(tode *head,tode *n) //adding a node to the list
 {
@@ -85,12 +84,12 @@ void whitechapel_print(tode *head) //prints linked list
     for(current=head;current!=NULL;current=current->next)
     {
        printf("%d %s\n",current->info.p+1,current->info.name);
-      // data(current);
+
     }
 }
 tode* finder(int r,int choice)// searches for given tile in todes
 {
-    //puts("finder worked");
+
     int flag=0;
     tode* current=head;
     if(choice==0)
@@ -736,10 +735,8 @@ void W_C_maker(void)
    while(all_S!=9)
     {
         w=random9();
-       // printf("w: %d\nall_S: %d\n",w,all_S);
         if(st[w]==0)
         {
-       //  printf("worked with %d\n",w);
          t[w].p=all_S;   //sets ordering number
          if(all_S==2) //changes position for 2 -|
         {
@@ -818,8 +815,6 @@ void card_and_id(void)
     while(tot<10)
     {
         z=random9();
-       // printf("tot: %d z: %d ",tot,z);
-       // printf("co[%d]= %d ",z,card_order[z]);
         if(card_order[z]==0)
         {
             card_order[z]=tot;
@@ -1401,7 +1396,7 @@ int whereisJack(int d)
                                  {
                                      cj[0]++;
                                     if(jack_IDen==where->info.key){
-                                        loc++:
+                                        loc++;
                                     }
                                  }
                              }
@@ -1651,15 +1646,12 @@ int whereisJack(int d)
                          {
                              if(where->info.j[3]==1)
                              {
-               //                  puts("You left tile 4");
                                  where=finder(3,1);
                                  if(where->info.j[1]==1)
                                  {
-                 //                   puts("You entered tile 3");
                                     cj[3]++;
                                     if(jack_IDen==where->info.key){
                                         loc++;
-                   //                     puts("Found in tile 3");
                                     }
                                  }
                              }
@@ -1671,43 +1663,34 @@ int whereisJack(int d)
     }
      if(d==7) //tile 8
     {
-     //   printf("loc : %d Checking d=7 :\n",loc);
         where=finder(7,1);
             if(where->info.j[2]==1)
             {
-       //         puts("You entered tile 7");
                 cj[7]++;
                 if(jack_IDen==where->info.key){
                     loc++;
-         //           puts("Found in tile 7");
                 }
                 else
                     {
                         if(where->info.j[0]==1)
                         {
-           //             puts("You left tile 7");
                         where=finder(4,1);
                          if(where->info.j[2]==1)
                          {
-             //                 puts("You entered tile 4");
                               cj[4]++;
                              if(jack_IDen==where->info.key){
                              loc++;
-               //               puts("Found in tile 4");
                              }
                              else
                              {
                                  if(where->info.j[0]==1)
                                  {
-                 //                    puts("You left tile 4");
                                      where=finder(1,1);
                                      if(where->info.j[2]==1)
                                      {
-                   //                      puts("You entered tile 1");
                                          cj[1]++;
                                          if(jack_IDen==where->info.key){
                                             loc++;
-                     //                       puts("Found in tile 1");
                                          }
                                      }
                                  }
@@ -1725,43 +1708,34 @@ int whereisJack(int d)
     }
      if(d==10) //tile 4
     {
-     //   printf("loc : %d Checking d=10 :\n",loc);
         where=finder(3,1);
             if(where->info.j[3]==1)
             {
-       //         puts("You entered tile 3");
                 cj[3]++;
                 if(jack_IDen==where->info.key){
                     loc++;
-         //           puts("Found in tile 3");
                 }
                 else
                     {
                     if(where->info.j[1]==1)
                     {
-           //          puts("You left tile 3");
                      where=finder(4,1);
                      if(where->info.j[3]==1)
                      {
-             //             puts("You entered tile 4");
                           cj[4]++;
                          if(jack_IDen==where->info.key){
                             loc++;
-               //             puts("Found in tile 4");
                          }
                          else
                          {
                              if(where->info.j[1]==1)
                              {
-                 //                puts("You left tile 4");
                                  where=finder(5,1);
                                  if(where->info.j[3]==1)
                                  {
-                   //                 puts("You entered tile 5");
                                     cj[5]++;
                                     if(jack_IDen==where->info.key){
                                         loc++;
-                     //                     puts("Found in tile 5");
                                     }
                                  }
                              }
@@ -1777,8 +1751,6 @@ int whereisJack(int d)
     }
 void jack_seen(void)
 {
-    //for(int i=0;i<9;i++)
-  //      printf("cj[%d]=%d\n",i,cj[i]);
     tode* clean;
     for(int i=0;i<9;i++)
     {
@@ -1791,8 +1763,6 @@ void jack_seen(void)
 }
 void jack_unseen(void)
 {
-  //  for(int i=0;i<9;i++)
-    //    printf("cj[%d]=%d\n",i,cj[i]);
     tode* clean;
      for(int i=0;i<9;i++)
     {
@@ -1811,26 +1781,19 @@ if(d==0 || d==11) //tile 1
         where=finder(0,1);
         if(d==0) //detective can see this direction
         {
-      //      printf("Checking d=0 :\n");
             if(where->info.j[0]==1)
             {
-        //        puts("You entered tile 0");
                 cj[0]+=2;
                  if(where->info.j[2]==1)
             {
-          //  puts("You left tile 0");
             where=finder(3,1);
             if(where->info.j[0]==1)
             {
-            //puts("You entered tile 3");
             cj[3]+=2;
             if(where->info.j[2]==1)
             {
-           // puts("You left tile 3");
-        //    where=finder(6,1);
              if(where->info.j[0]==1)
             {
-          //  puts("You entered tile 6");
             cj[6]+=2;
 
             }
@@ -1843,26 +1806,20 @@ if(d==0 || d==11) //tile 1
         }
         if(d==11)
         {
-         //printf("Checking d=11 :\n");
             if(where->info.j[3]==1)
             {
-           //     puts("You entered tile 0");
                 cj[0]+=2;
                  if(where->info.j[1]==1)
             {
-        //    puts("You left tile 0");
             where=finder(1,1);
             if(where->info.j[3]==1)
             {
-          //  puts("You entered tile 1");
             cj[1]+=2;
              if(where->info.j[1]==1)
             {
-       //     puts("You left tile 1");
             where=finder(2,1);
              if(where->info.j[3]==1)
             {
-         //   puts("You entered tile 2");
             cj[2]+=2;
 
             }
@@ -1880,26 +1837,20 @@ if(d==0 || d==11) //tile 1
         where=finder(2,1);
         if(d==2) //detective can see this direction
         {
-           // printf("Checking d=2 :\n");
             if(where->info.j[0]==1)
             {
-             //   puts("You entered tile 2");
                 cj[2]+=2;
                   if(where->info.j[2]==1)
             {
-    //        puts("You left tile 2");
             where=finder(5,1);
             if(where->info.j[0]==1)
             {
-      //      puts("You entered tile 5");
             cj[5]+=2;
             if(where->info.j[2]==1)
             {
-        //    puts("You left tile 5");
             where=finder(8,1);
              if(where->info.j[0]==1)
             {
-          //  puts("You entered tile 8");
             cj[8]+=2;
 
             }
@@ -1912,26 +1863,20 @@ if(d==0 || d==11) //tile 1
         }
         if(d==3)
         {
-   //      printf("Checking d=3 :\n");
             if(where->info.j[1]==1)
             {
-     //           puts("You entered tile 2");
                 cj[2]+=2;
                 if(where->info.j[3]==1)
             {
-       //     puts("You left tile 2");
             where=finder(1,1);
             if(where->info.j[1]==1)
             {
-         //   puts("You entered tile 1");
             cj[1]+=2;
              if(where->info.j[3]==1)
             {
-           // puts("You left tile 1");
             where=finder(0,1);
              if(where->info.j[1]==1)
             {
-      //      puts("You entered tile 0");
             cj[0]+=2;
 
             }
@@ -1949,26 +1894,20 @@ if(d==0 || d==11) //tile 1
         where=finder(8,1);
         if(d==6) //detective can see this direction
         {
-        //    printf("Checking d=6 :\n");
             if(where->info.j[2]==1)
             {
-      //          puts("You entered tile 2");
                cj[8]+=2;
                  if(where->info.j[0]==1)
             {
-        //    puts("You left tile 8");
             where=finder(5,1);
             if(where->info.j[2]==1)
             {
-          //  puts("You entered tile 5");
             cj[5]+=2;
              if(where->info.j[0]==1)
             {
-    //        puts("You left tile 5");
             where=finder(2,1);
              if(where->info.j[2]==1)
             {
-      //      puts("You entered tile 2");
             cj[2]+=2;
 
             }
@@ -1981,7 +1920,6 @@ if(d==0 || d==11) //tile 1
         }
         if(d==5)
         {
-   //      printf("Checking d=8 :\n");
             if(where->info.j[1]==1)
             {
      //           puts("You entered tile 8");
