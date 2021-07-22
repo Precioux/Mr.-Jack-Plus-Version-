@@ -1035,14 +1035,14 @@ int turn_checker(void)//checks if game is ended or not
         result=2;
      if(turn>8)
         result=3;
-  //   printf("Turn Checker worked and result is %d\n",result);
+     printf("Turn Checker worked and result is %d\nturn=%d \nsherl: %d\njack_H: %d\n",result,turn,sherlock_check(),jack_H);
     return result;
 }
 int gametype;
 int choice;
 void Token1(int side,int player)
 {
-    printf("token 1 : player :%d choice: %d\n",player,choice);
+  //  printf("token 1 : player :%d choice: %d\n",player,choice);
     int choice1=choice-1;
     int f,step;
     tode* fi;
@@ -1106,7 +1106,7 @@ void Token1(int side,int player)
 }
 void Token2(int side,int player)    //checked
 {
-    printf("Token 2: player: %d  choice: %d\n",player,choice);
+
     int step;
      //action for token 2
     int choice2=choice-1;
@@ -1160,7 +1160,7 @@ void Token2(int side,int player)    //checked
 }
 void Token3(int side,int player)  //checked
 {
-    printf("token 3  player: %d  choice: %d\n",player,choice);
+   // printf("token 3  player: %d  choice: %d\n",player,choice);
     int ti,rotate,tp,a,b,res,coin;
     tode* rt;
     int choice3=choice-1;
@@ -1233,7 +1233,7 @@ void Token3(int side,int player)  //checked
 }
 void Token4(int side,int player)
 {
-    printf("token 4: player: %d  choice: %d\n",player,choice);
+  //  printf("token 4: player: %d  choice: %d\n",player,choice);
     int ti,rotate,tp,step,coin;
     tode* rt;
     int choice4=choice-1;
@@ -3629,14 +3629,13 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
            Token4(act[3].side,1);
            act[3].check=1;
        }
-       //puts("Jack will choose 2 actions from available tokens: ");
+       puts("Jack will choose 2 actions from available tokens: ");
        for(int i=0;i<4;i++)
        {
            if(act[i].check==0)
             printf("Token %d : %d\n",i+1,act[i].side);
        }
 
-        puts("Jack will choose 2 actions from available tokens: ");
        while(flag[2]!=1){
        ch[1]=rand()%4+1;
        if(act[ch[1]-1].check==0)
@@ -3645,14 +3644,14 @@ while(turn_checker()==0 && save==0 && k!=-1) //till turn checker is 0
            act[ch[1]-1].check=1;
        }
        }
-       printf("j1: %d\n",ch[1]);
+       //printf("j1: %d\n",ch[1]);
        while(flag[3]!=1){
          ch[2]=rand()%4+1;
        if(act[ch[2]-1].check==0)
            flag[3]=1;
-       printf("flag: %d  j2:%d  actcheck:%d\n",flag[3],ch[2],act[ch[2]].check);
+       //printf("flag: %d  j2:%d  actcheck:%d\n",flag[3],ch[2],act[ch[2]].check);
        }
-      printf("j2: %d\n",ch[2]);
+    //  printf("j2: %d\n",ch[2]);
        ch[1]=ch[1]-1;
        ch[2]=ch[2]-1;
 
